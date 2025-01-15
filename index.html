@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        * {margin: 0px;
+           padding:0%;
+           border-box
+        }
+
+        header {background-color: black;
+        }
+
+        nav {display: flex;
+            justify-content: space-around;
+            padding: 12px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo img {
+            width: 150px;
+            height: 100px;
+            object-fit: contain; 
+            margin: 0%;
+            }
+
+        .titulolimaturistica {
+            font-size: 70px;
+            font-family: "Pacifico", serif;
+            color: yellow;
+            }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            }
+
+        .nav-links a {
+            color:azure;
+            text-decoration: none;
+            font-family: "Nunito", sans-serif;
+            font-size: 20px;
+            padding: 0 rem;
+            transition: opacity 0.3s; 
+        }
+       
+
+        .fondo{ min-height: 100vh;
+            background-image: linear-gradient(
+                0deg, rgba(0,0,0,0.5),
+                rgba(0, 0, 0, 0.6)
+                ) 
+                ,url(https://th.bing.com/th/id/R.75ad4fdad2d778d68f58c0f4f0bc772a?rik=9JJSaRGNxUWuCQ&riu=http%3a%2f%2fwww.travelgrove.com%2fblog%2fwp-content%2fuploads%2f2012%2f01%2fcity_lima_peru.jpg&ehk=5KXdopO%2fNy%2fRvXJCnT60Mq7JL9qi2PaPKzx0MspK3NQ%3d&risl=&pid=ImgRaw&r=0);
+            background-size: cover;
+            background-position: center;
+            justify-content: left;
+            color: white;
+            font-size: 3rem;
+            overflow: hidden;
+        }
+
+        .parrafoprincipal {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: rgb(red, green, blue);
+            margin: 10%;
+            padding: 5rem;
+            border-radius: 25px;
+            max-width: 700px;
+            border: 3px solid #ffffff;
+            background:  rgba(29, 198, 178, 0.605);
+        }
+
+        #lugares-recomendados {
+            background-color: rgb( 30,30,30);
+            padding: 4rem 2rem ;
+            color: white;
+            text-align: center;
+        }
+
+        .lugares-titulo {
+            text-align:  center;
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 40px;
+            margin-bottom: 3rem;
+            padding:  rem;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .lugares-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .lugar-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            background: rgba(127, 210, 120, 0.235);
+            padding: 2rem;
+            border-radius: 15px;
+            align-items: center;
+        }
+
+        .lugar-card:nth-child(even) {
+            grid-template-columns: 1fr 1fr; 
+        }
+
+        .lugar-info {
+            padding: 1rem;
+        }
+
+        .lugar-info h2 {
+            font-family: "Nunito", sans-serif;
+            color: #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .lugar-info p {
+            font-family: "Nunito", sans-serif;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            color: #e0e0e0;
+        }
+
+        .lugar-imagen {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .lugar-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .lugar-imagen img:hover {
+            transform: scale(1.05);
+        }
+
+        .pie-pagina {
+            background-color: rgb(203, 197, 216);
+            padding: 1rem 2rem ;
+            color: white;
+            text-align: center;
+        }
+
+    
+
+
+
+    
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            <img src="https://pngimg.com/uploads/lime/lime_PNG16.png" 
+            alt="logolimaturistica">
+        </div>
+        <h1 class="titulolimaturistica" >Lima Turistica</h1>
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#lugares">Lugares</a>
+            <a href="#gastronomia">Gastronomia</a>
+            <a href="#qyq">Q&A</a>
+        </div>
+    </nav>
+</header> 
+<section class="fondo">
+    <h2 class="parrafoprincipal">Ven y descubre lo que Lima tiene para ofrecerte</h2>
+</section>  
+
+<section id="lugares-recomendados">
+    <div class="container">
+        <h1 class="lugares-titulo">Lugares Recomendados</h1>
+
+        <div class="lugares-container">
+
+            <article class="lugar-card">
+                <div class="lugar-info">
+                    <h2>Plaza de Armas</h2>
+                    <p>La Plaza de Armas o Plaza Mayor, situada en el corazón del centro histórico y en el 
+                    mismo lugar donde en 1535 el conquistador Francisco Pizarro fundó la ciudad, es uno de los 
+                    lugares que visitar en Lima más importantes.</p>
+                </div>
+
+                <div class="lugar-imagen">
+                    <img src="https://th.bing.com/th/id/OIP.VJqgts6-yKu_PZFM1l74ogHaE8?rs=1&pid=ImgDetMain" 
+                        alt="Plaza de Armas de Lima">
+                </div>
+            </article>
+
+            <article class="lugar-card">
+                <div class="lugar-imagen">
+                    <img src="https://lonelyplanetimages.imgix.net/a/g/hi/t/855d60c6d22812db892483cbddb74bf2-parque-del-amor.jpg" 
+                        alt="Parque del Amor">
+                </div>
+
+                <div class="lugar-info">
+                    <h2>Parque del Amor</h2>
+                    <p>Pasear al atardecer por el Parque del Amor situado en el famoso barrio de Miraflores, es una de 
+                    las mejores cosas que hacer en Lima. Las vistas al Océano Pacífico resultan inolvidables.</p>
+                </div>
+            </article>
+
+            <article class="lugar-card">
+                <div class="lugar-info">
+                    <h2>Huaca Pucllana</h2>
+                    <p>Huaca Pucllana, una zona arqueológica pre-inca del 200 al 700 d. C., es otro de los lugares imprescindibles. 
+                    Desde su pirámide de 7 pisos podrás disfrutar de unas curiosas vistas de las ruinas rodeadas de edificios modernos.</p>
+                </div>
+
+                <div class="lugar-imagen">
+                    <img src="https://th.bing.com/th/id/OIP.DEgC5hWTphQeDOW6czeOdQHaEK?rs=1&pid=ImgDetMain" 
+                        alt="Huaca Pucllana">
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<footer class="pie-pagina">
+    <div class="container">
+        <p>&copy; 2025 Lima Turistica. Diseñado por Mauricio Cherre</p>
+    </div>
+</footer>
+
+</body>
+</html>
