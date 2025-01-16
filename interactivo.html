@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <title>Piedra, Papel o Tijera</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+        }
+        
+        .block {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .block:hover {
+            transform: scale(1.1);
+        }
+
+        .resultado {
+            margin: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+        }
+        .ganaste {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .perdiste {
+            background-color: #f44336;
+            color: white;
+        }
+        .empate {
+            background-color: #808080;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mi web interactiva</h1>  
+    <div class="container" id="blockContainer"></div>
+    <div>
+        <button onclick="registrarHermanos()">Juego 1</button>
+        <button onclick="crearBloques()">Juego2</button>
+        <button onclick="iniciarYankenpo()">Juego 3</button>
+    </div>
+
+    <div id="resultado"></div> 
+
+
+<script src="./app.js"></script>
+</body>
+</html>

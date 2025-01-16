@@ -178,6 +178,27 @@
             color: white;
             text-align: center;
         }
+
+        .btn-link {
+            background-color: #ffe600b0;
+            border-radius: 10px;
+            padding: 1rem 1rem;
+            color: white;
+            text-align: center;
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 25px;
+            margin-bottom: 1rem;
+            display: inline;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+            align-content: center;
+            text-decoration: none;
+            text-shadow: 1px 1px black;
+            
+        }
     </style>
 </head>
 <body>
@@ -215,6 +236,7 @@ let confirmacion = window.confirm("¿Quiere suscribirse a la informacion de nues
 
 <section class="fondo">
     <h2 class="parrafoprincipal">Ven y descubre lo que Lima tiene para ofrecerte</h2>
+    <a href="./interactivo.html" class="btn-link">Quiero interactuar</a>
     <script>
         if (pregunta === "si") {
             document.write(`<div class='banner'>Bienvenido a Lima, ${nombre} </div>`);
