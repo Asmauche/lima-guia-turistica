@@ -73,10 +73,8 @@ const backgrounColor = prompt("Ingrese un color (en ingles) este sera el color d
     }
 
 
-     // Iniciar el juego
-function iniciarYankenpo () {
 // Función principal del juego
-function jugar() {
+function jugarYankenpo() {
     // Obtener elección del usuario
     let eleccionUsuario = prompt("Elige: piedra, papel o tijera").toLowerCase();
     
@@ -144,7 +142,6 @@ function mostrarResultado(resultado, eleccionUsuario, eleccionComputadora) {
     divResultado.innerHTML = `<div class="resultado ${resultado}">${mensaje}</div>`;
 }
 
-}
 
 
 
