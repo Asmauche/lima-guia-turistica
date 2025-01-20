@@ -1,62 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <title>Piedra, Papel o Tijera</title>
-    <style>
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            padding: 20px;
-        }
-        
-        .block {
-            width: 100px;
-            height: 100px;
-            border-radius: 5px;
-            transition: transform 0.3s ease;
-        }
-        
-        .block:hover {
-            transform: scale(1.1);
-        }
-
-        .resultado {
-            margin: 20px;
-            padding: 15px;
-            border-radius: 5px;
-            font-family: Arial, sans-serif;
-            font-size: 18px;
-        }
-        .ganaste {
-            background-color: #4CAF50;
-            color: white;
-        }
-        .perdiste {
-            background-color: #f44336;
-            color: white;
-        }
-        .empate {
-            background-color: #808080;
-            color: white;
-        }
-    </style>
+    <title>Juegos Interactivos</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Mi web interactiva</h1>  
-    <div class="container" id="blockContainer"></div>
-    <div>
-        <button onclick="registrarHermanos()">Juego 1</button>
-        <button onclick="crearBloques()">Juego2</button>
-        <button onclick="jugarYankenpo()">Juego 3</button>
-    </div>
+    <main>
+        <h1>Juegos Interactivos</h1>  
+        <div class="container" id="blockContainer">
+            <button onclick="registrarHermanos()" class="game-button">Registrar Hermanos</button>
+            <button onclick="crearBloques()" class="game-button">Crear Bloques</button>
+            <button onclick="jugarYankenpo()" class="game-button">Jugar Yankenpo</button>
+            <button onclick="limpiarArea()" class="clean-button">Limpiar Área</button>
+        </div>
+    </main>
 
-    <div id="resultado"></div>
-
-
-<script src="./app.js"></script>
+    <section class="game-section">
+        <h2 class="titulo-resultado">Resultado</h2>
+        <div id="game-area"></div>
+    </section>
+    
+    <script src="app.js"></script>
 </body>
 </html>

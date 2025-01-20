@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    background: url(https://th.bing.com/th/id/R.6ac3a3e220b440cc7fce0b91d12b8574?rik=RHn9E3b%2bWk89Ag&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fa%2f9%2f0%2f152456.jpg&ehk=Gqb7KFU8u6h37eQAuFQT1YEu3DAuORsPBM9fOGHncbc%3d&risl=&pid=ImgRaw&r=0);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 1200px;
+    min-height: 100vh;
+    margin: auto;
+    padding: 20px;
+}
+
+main {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#blockContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.game-button, .clean-button {
+    padding: 20px;
+    width: 70%;
+    font-size: 20px;
+    color: #fff;
+    font-family: Verdana, sans-serif;
+    border: none;
+    border-radius: 12px;
+    transition: transform 300ms ease-in;
+    cursor: pointer;
+}
+
+.game-button {
+    background-color: #3b82f6;
+}
+
+.clean-button {
+    background-color: #dc2626;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.game-section {
+    margin-top: 40px;
+}
+
+#game-area {
+    color: white;
+    min-height: 300px;
+    border: dashed 3px;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+/* Estilos para los bloques generados */
+.block {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    margin: 5px;
+    display: inline-block;
+}
+
+.block:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para la lista de hermanos */
+.hermanos-lista {
+    list-style-position: inside;
+    padding: 20px;
+}
+
+.hermanos-lista li {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+/* Estilos para los resultados del juego */
+.resultado {
+    margin: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+
+.ganaste {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.perdiste {
+    background-color: #f44336;
+    color: white;
+}
+
+.empate {
+    background-color: #808080;
+    color: white;
+}

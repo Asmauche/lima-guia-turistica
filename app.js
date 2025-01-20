@@ -1,148 +1,112 @@
-//const edad = prompt ("Ingrese su edad");
-// convertidor de letra en numero
-//const edadNumber = parseInt(edad);
-//const nombre = prompt("Ingresa tu nombre");
-//const pregunta = prompt("¿Visitas Lima por primera vez? (si/no)").toLowerCase();
-//if (edad < 18) {
-    //document.write("<div class='banner'>Recuerda visitar los lugares con un adulto</div>");
+// Función para cambiar el color de fondo
+function cambiarColorFondo() {
+    const color = prompt("Ingrese un color en inglés para el fondo:");
+    if (color) {
+        document.body.style.backgroundColor = color;
+    }
+}
 
-//let confirmacion = window.confirm("¿Quiere suscribirse a la informacion de nuestro boletin?");}
-
-const backgrounColor = prompt("Ingrese un color (en ingles) este sera el color de fondo de la pagina" 
-);
-    document.body.style.backgroundColor = backgrounColor;
-
-    function registrarHermanos() {
+// Función para registrar hermanos
+function registrarHermanos() {
+    const cantidadDeHermanos = parseInt(prompt("Ingrese la cantidad de hermanos:"));
     
-        const cantidadDeHermanos = parseInt(prompt("Ingrese la cantidad de hermanos")) ;
-        
-        const nombresDeHermanos =[];
-        
-        let contador = 0;
-        
-        while (contador < cantidadDeHermanos) {
-            const hermano = prompt("Ingresa el nombre del hermano" + contador);
-            nombresDeHermanos.push(hermano);
-            contador ++;
-            
-        console.log(nombresDeHermanos);
+    if (isNaN(cantidadDeHermanos) || cantidadDeHermanos < 0) {
+        alert("Por favor ingrese un número válido");
+        return;
+    }
+
+    const gameArea = document.getElementById("game-area");
+    gameArea.innerHTML = ''; // Limpiar área
+
+    if (cantidadDeHermanos === 0) {
+        gameArea.innerHTML = '<p>No tienes hermanos</p>';
+        return;
+    }
+
+    const lista = document.createElement('ul');
+    lista.className = 'hermanos-lista';
+
+    for (let i = 0; i < cantidadDeHermanos; i++) {
+        const hermano = prompt(`Ingresa el nombre del hermano ${i + 1}:`);
+        if (hermano) {
+            const li = document.createElement('li');
+            li.textContent = hermano;
+            lista.appendChild(li);
         }
     }
 
+    gameArea.appendChild(lista);
+}
+
+// Función para crear bloques
+function crearBloques() {
+    const cantidadBloques = parseInt(prompt("¿Cuántos bloques quieres generar?"));
     
-
-    // Función para crear los bloques
-    function crearBloques() {
-        // Pedir al usuario la cantidad de bloques
-        const cantidadBloques = parseInt(prompt("¿Cuántos bloques quieres generar?"));
-        
-        // Validar que sea un número válido
-        if (isNaN(cantidadBloques) || cantidadBloques <= 0) {
-            alert("Por favor ingresa un número válido mayor a 0");
-            return;
-        }
-
-        // Obtener el contenedor
-        const container = document.getElementById('blockContainer');
-        
-        // Crear los bloques
-        for (let i = 0; i < cantidadBloques; i++) {
-            // Crear nuevo div
-            const bloque = document.createElement('div');
-            
-            // Agregar clase y color aleatorio
-            bloque.className = 'block';
-            bloque.style.backgroundColor = generarColorAleatorio();
-            
-            // Agregar al contenedor
-            container.appendChild(bloque);
-        }
-
-        function generarColorAleatorio() {
-            const letrasHex = '0123456789ABCDEF';
-            let color = '#';
-            
-            // Generamos 6 caracteres para el código hexadecimal
-            for (let i = 0; i < 6; i++) {
-                color += letrasHex[Math.floor(Math.random() * 16)];
-            }
-            
-            return color;
-        }
-
+    if (isNaN(cantidadBloques) || cantidadBloques <= 0) {
+        alert("Por favor ingresa un número válido mayor a 0");
+        return;
     }
 
+    const gameArea = document.getElementById('game-area');
+    gameArea.innerHTML = ''; // Limpiar área existente
+    
+    for (let i = 0; i < cantidadBloques; i++) {
+        const bloque = document.createElement('div');
+        bloque.className = 'block';
+        bloque.style.backgroundColor = generarColorAleatorio();
+        gameArea.appendChild(bloque);
+    }
+}
 
-// Función principal del juego
+function generarColorAleatorio() {
+    const letrasHex = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letrasHex[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+// Función para jugar Yankenpo
 function jugarYankenpo() {
-    // Obtener elección del usuario
-    let eleccionUsuario = prompt("Elige: piedra, papel o tijera").toLowerCase();
+    const eleccionUsuario = prompt("Elige: piedra, papel o tijera").toLowerCase();
     
-    // Validar entrada del usuario
-    while (!["piedra", "papel", "tijera"].includes(eleccionUsuario)) {
-        eleccionUsuario = prompt("Por favor, elige solo: piedra, papel o tijera").toLowerCase();
+    if (!["piedra", "papel", "tijera"].includes(eleccionUsuario)) {
+        alert("Por favor, elige solo: piedra, papel o tijera");
+        return;
     }
     
-    // Obtener elección de la computadora
     const eleccionComputadora = obtenerEleccionComputadora();
-    
-    // Determinar el ganador
     const resultado = determinarGanador(eleccionUsuario, eleccionComputadora);
     
-    // Mostrar el resultado
-    mostrarResultado(resultado, eleccionUsuario, eleccionComputadora);
-}
-        
-// Función para generar la elección aleatoria de la computadora
-function obtenerEleccionComputadora() {
-    // Generar número aleatorio entre 0 y 2
-    const numeroAleatorio = Math.floor(Math.random() * 3);
-    
-    // Convertir número a elección
-    switch(numeroAleatorio) {
-        case 0: return "piedra";
-        case 1: return "papel";
-        case 2: return "tijera";
-    }
+    const gameArea = document.getElementById("game-area");
+    gameArea.innerHTML = `
+        <div class="resultado ${resultado}">
+            <p>Tu elección: ${eleccionUsuario}</p>
+            <p>Computadora: ${eleccionComputadora}</p>
+            <p>Resultado: ${resultado.toUpperCase()}</p>
+        </div>
+    `;
 }
 
-// Función para determinar el ganador
+function obtenerEleccionComputadora() {
+    const opciones = ["piedra", "papel", "tijera"];
+    return opciones[Math.floor(Math.random() * 3)];
+}
+
 function determinarGanador(eleccionUsuario, eleccionComputadora) {
-    if (eleccionUsuario === eleccionComputadora) {
-        return "empate";
-    }
+    if (eleccionUsuario === eleccionComputadora) return "empate";
     
-    if (
-        (eleccionUsuario === "piedra" && eleccionComputadora === "tijera") ||
+    if ((eleccionUsuario === "piedra" && eleccionComputadora === "tijera") ||
         (eleccionUsuario === "papel" && eleccionComputadora === "piedra") ||
-        (eleccionUsuario === "tijera" && eleccionComputadora === "papel")
-    ) {
+        (eleccionUsuario === "tijera" && eleccionComputadora === "papel")) {
         return "ganaste";
     }
     
     return "perdiste";
 }
 
-// Función para mostrar el resultado en la página
-function mostrarResultado(resultado, eleccionUsuario, eleccionComputadora) {
-    const divResultado = document.getElementById("resultado");
-    let mensaje = `
-        Tu elección: ${eleccionUsuario}<br>
-        Computadora: ${eleccionComputadora}<br><br>
-    `;
-
-    if (resultado === "ganaste") {
-        mensaje += "¡Felicitaciones, ganaste! 🎉";
-    } else if (resultado === "perdiste") {
-        mensaje += "¡Lo siento, perdiste! 😢";
-    } else {
-        mensaje += "¡Es un empate! 🤝";
-    }
-
-    divResultado.innerHTML = `<div class="resultado ${resultado}">${mensaje}</div>`;
+// Función para limpiar el área de juego
+function limpiarArea() {
+    document.getElementById("game-area").innerHTML = '';
 }
-
-
-
-
-    
